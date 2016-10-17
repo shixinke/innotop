@@ -19,9 +19,11 @@
 # this program; if not, write to the Free Software Foundation, Inc., 51 Franklin
 # Street, Fifth Floor, Boston, MA  02110-1301  USA
 
+#使用严格模式(与js有点类似，容易查找错误)
 use strict;
 use warnings FATAL => 'all';
 
+#our用来声明一个包全局变量(my声明词法变量，只能闭合块中使用)
 our $VERSION = '1.11.1';
 
 # Find the home directory; it's different on different OSes.
@@ -47,7 +49,9 @@ use constant MKDEBUG  => $ENV{MKDEBUG} || 0;
 # Defaults are built-in, but you can add/replace items by passing them as
 # hashrefs of {key, desc, copy, dsn}.  The desc and dsn items are optional.
 # You can set properties with the prop() sub.  Don't set the 'opts' property.
+#在perl中，使用sub声明一个函数
 sub new {
+   # @_用来表示函数的参数列表(是一个数组)
    my ( $class, @opts ) = @_;
    my $self = {
       opts => {
